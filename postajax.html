@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+       var params = $("#scripts option:selected").val();
+	alert(params);
+   $.post("ajaxpost.php",
+    {
+        city: params,
+    },
+    function(data, status){
+        $('#result').attr('value',data);
+        });});
+
+});
+</script>
+</head>
+<body>
+
+<form action="#" method="post" id="demoForm" class="demoForm">
+	
+    <fieldset>
+        <legend> Get the Value of parcode for a Selected Option</legend>
+        
+        <p>
+            <select id="scripts" name="scripts">
+                <option value="Nablus">Nablus</option>
+                <option value="Jenin">Jenin</option>
+                <option value="Salfit">Salfit </option>
+            </select>
+            
+            <input type="text" name="display" id="result" />
+        </p>
+
+        <p>
+           <button type="button" id="showVal" value="Display" id="result" > Click me</button>  
+        </p>
+       <div id ="bye" > </div>
+
+    </fieldset>
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
